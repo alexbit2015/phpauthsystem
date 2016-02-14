@@ -9,6 +9,11 @@
       "email": "email@example.com"
     }
   ],
+  "autoload":{
+    "psr-4": {
+      "Codengine\\":"app/Codengine"
+    }
+  },
   "require": {
     "slim/slim": "~2.0",
     "slim/views": "0.1.*",
