@@ -1,7 +1,7 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Александр
- * Date: 18.02.2016
- * Time: 12:09
- */
+{% if auth %}
+    <p>Hello {{ auth.getFullNameOrUsername }},</p>
+{% else %}
+    <p>Hello there,</p>
+{% endif %}
+
+{% block content %} {% endblock %}

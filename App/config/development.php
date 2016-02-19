@@ -8,7 +8,7 @@
 
 return [
     'app'=> [
-        'url'=>'http://phpauthsystem/',
+        'url'=>'http://phpauthsystem',
         'hash'=> [
             'algo'=> PASSWORD_BCRYPT,
             'cost'=> 10
@@ -31,9 +31,9 @@ return [
     'mail'=>[
         'smtp_auth'=>true,
         'smtp_secure'=>'tls',
-        'host'=>'smtp.gmail.com',
+        'host'=>'smtp.yandex.ru',
         'username'=>'alexbit',
-        'password'=>'',
+        'password'=>'panadoltheadmin6851822',
         'port'=>'587',
         'html'=>true,
     ],

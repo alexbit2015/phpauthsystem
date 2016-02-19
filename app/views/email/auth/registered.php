@@ -1,7 +1,7 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Александр
- * Date: 18.02.2016
- * Time: 11:43
- */
+{% extends 'email/templates/default.php' %}
+
+{% block content %}
+    <p>You have registered!</p>
+
+    <p>Activate your account using this link:{{ baseUrl }}{{ urlFor('activate') }}?email={{ user.email }}&identifier={{ identifier }}</p>
+{% endblock %}
