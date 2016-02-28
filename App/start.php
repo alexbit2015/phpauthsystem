@@ -13,6 +13,7 @@ use Codengine\Mail\Mailer;
 
 use Codengine\Helpers\Hash;
 use Codengine\Middleware\BeforeMiddleware;
+use Codengine\Middleware\CsrfMiddleware;
 
 session_cache_limiter(false);
 session_start();
@@ -30,13 +31,16 @@ $app = new Slim([
 ]);
 
 $app->add(new BeforeMiddleware);
+$app->add(new CsrfMiddleware);
 
 $app->configureMode($app->config('mode'), function() use ($app){
     $app->config = Config::load(INC_ROOT . "/app/config/{$app->mode}.php");
 });
 
 require 'database.php';
+require 'filters.php';
 require 'routes.php';
+
 
 $app->auth = false;
 

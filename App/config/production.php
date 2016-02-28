@@ -41,6 +41,6 @@ return [
         'debug'=>true,
     ],
     'csrf'=> [
-        'session'=>'csrf_token'
+        'key'=>'csrf_token'
     ],
 ];

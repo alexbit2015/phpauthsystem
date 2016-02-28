@@ -17,8 +17,15 @@
     </div>
 
     <div>
+        <input type="checkbox" name="remember" id="remember">
+            <label for="remember">Remember me</label>
+    </div>
+
+    <div>
         <input type="submit" value="Login">
     </div>
+
+    <input type="hidden" name="{{ csrf_key }}" value="{{ csrf_token }}">
 
 </form>
 {% endblock %}
