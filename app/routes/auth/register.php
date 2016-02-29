@@ -1,5 +1,7 @@
 <?php
 
+use Codengine\User\UserPermission;
+
 $app->get('/register', $guest(), function() use ($app){
     $app->render('auth/register.php');
 })->name('register');
@@ -33,7 +35,7 @@ $app->post('/register', $guest(), function() use($app) {
             'active_hash' => $app->hash->hash($identifier),
         ]);
 
-
+        $user->permissions()->create(UserPermission::$defaults);
 
     //Send email
         $app->mail->send('email/auth/registered.php',['user'=>$user, 'identifier'=>$identifier], function($message) use ($user){
