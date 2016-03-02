@@ -25,10 +25,15 @@ $app->post('/login', $guest(), function() use ($app) {
 
     if ($v->passes()) {
         $user = $app->user
-            ->where('username', $identifier)
+          /*  ->where('username', $identifier)
             ->orWhere('email', $identifier)
             ->where('active', true)
-            ->first();
+            ->first();*/
+        ->where('active', true)
+            ->where(function($query) use ($identifier) {
+                return $query->where('email', $identifier)
+                    ->orWhere('username', $identifier);
+            })->first();
 
         if ($user && $app->hash->passwordCheck($password, $user->password)) {
             $_SESSION[$app->config->get('auth.session')] = $user->id;
